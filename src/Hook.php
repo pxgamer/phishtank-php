@@ -5,68 +5,116 @@ namespace pxgamer\PhishTank;
 /**
  * Class Hook
  * @package pxgamer\PhishTank
- *
- * @property string BASE_URL
- * @property string $api_key
  */
 class Hook
 {
-    const BASE_URL = 'https://phishtank.com';
+    const API_CHECK_URL = 'https://phishtank.com/checkurl/';
+
+    /**
+     * @var bool|string
+     */
+    private $url;
+    /**
+     * @var array
+     */
+    private $requestData = ['format' => 'json'];
+    /**
+     * @var bool|null|string
+     */
+    private $app_key;
+    /**
+     * @var Meta|null
+     */
+    private $meta;
+    /**
+     * @var null|Results
+     */
+    private $results;
 
     /**
      * @param bool|string $url
      * @param bool|string $api_key
-     * @return array
      */
-    public static function checkUrl($url = false, $api_key = false)
+    public function __construct($url, $api_key = null)
     {
-        $data = [
-            'format' => 'json',
-        ];
+        $this->url = $url;
+        $this->requestData['url'] = $this->url;
 
         if ($api_key) {
-            $data['app_key'] = $api_key;
+            $this->app_key = $api_key;
+            $this->requestData['app_key'] = $this->app_key;
         }
 
-        if (is_string($url)) {
-            $data['url'] = urlencode($url);
-            return self::post('/checkurl/', $data);
-        } else {
-            return ['meta' => ['status' => 'fail']];
-        }
+        $this->getResults();
     }
 
     /**
-     * @param string $endpoint
-     * @param array $content
-     * @return array
+     * @return Hook
      */
-    private static function post($endpoint, $content)
+    public function getResults()
     {
         $cu = curl_init();
         curl_setopt_array(
             $cu,
             [
-                CURLOPT_URL => self::BASE_URL . $endpoint,
+                CURLOPT_URL => self::API_CHECK_URL,
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_SSL_VERIFYPEER => 0,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $content,
+                CURLOPT_POSTFIELDS => $this->requestData,
             ]
         );
 
-        return self::toArray(curl_exec($cu));
+        $this->populate(curl_exec($cu));
+
+        return $this;
     }
 
     /**
-     * @param $string
+     * Populate the meta and results attributes
+     * @param $jsonResponse
+     * @return $this
+     */
+    private function populate($jsonResponse)
+    {
+        $decodedResponse = $this->jsonToArray($jsonResponse);
+
+        $this->meta = new Meta();
+        $this->meta->populate($decodedResponse['meta']);
+
+        $this->results = new Results();
+        $this->results->populate($decodedResponse['results']);
+
+        return $this;
+    }
+
+    /**
+     * Get the Meta object
+     * @return null|Meta
+     */
+    public function meta()
+    {
+        return $this->meta;
+    }
+
+    /**
+     * Get the Results object
+     * @return null|Results
+     */
+    public function results()
+    {
+        return $this->results;
+    }
+
+    /**
+     * @param string $jsonString
      * @return array
      */
-    private static function toArray($string)
+    private function jsonToArray($jsonString)
     {
-        if (is_string($string)) {
-            return json_decode($string, true);
+        if (is_string($jsonString)) {
+            return json_decode($jsonString, true);
         } else {
             return [];
         }
