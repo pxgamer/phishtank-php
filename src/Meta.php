@@ -47,4 +47,17 @@ class Meta
 
         return $this;
     }
+
+    /**
+     * @param string $name
+     * @return null
+     */
+    public function __get($name)
+    {
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+
+        return null;
+    }
 }
