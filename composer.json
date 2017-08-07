@@ -2,27 +2,16 @@
   "name": "pxgamer/phishtank-php",
   "type": "library",
   "description": "A simple PHP wrapper for the PhishTank API.",
-  "homepage": "https://github.com/pxgamer/phishtank-php",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "PXgamer",
-      "email": "owzie123@gmail.com",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/pxgamer/phishtank-php/issues"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/pxgamer/phishtank-php"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "pxgamer\\PhishTank\\": "src/"
     }
+  },
+  "require": {
+    "php": "^7.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3.0"
   }
 }
