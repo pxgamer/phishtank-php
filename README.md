@@ -11,26 +11,28 @@ __Include the class:__
 ```php
 <?php
 require 'vendor/autoload.php';
-$client = new \pxgamer\PhishTank\Hook;
 ```
 
 #### Including the file manually  
 ```php
 <?php
 include 'src/Hook.php';
-$client = new \pxgamer\PhishTank\Hook;
 ```
 
 ## Functions
 
-__checkUrl()__
+**__construct($url, $api_key = null)**
 
-This is the sole function currently.
+This will initialise the object with all details.
 
 ```php
-// Api Key parameter is optional. Should be 'string' or false
-Hook::checkUrl($url, $api_key);
+// Api Key parameter is optional. Should be a string if included.
+$client = new \pxgamer\PhishTank\Hook($url);
 ```
+
+**getResults()**
+
+This will refresh the results and fetch new ones from the server.
 
 ## Example
 
@@ -41,55 +43,46 @@ include 'vendor/autoload.php';
 
 use pxgamer\PhishTank\Hook;
 
-// The Hook::checkUrl() function returns an array.
-$result = Hook::checkUrl('https://github.com');
+$result = new Hook('https://github.com');
 
-echo '<pre>'.print_r($result, true).'</pre>';
+echo '<pre>' . print_r($result, true) . '</pre>';
 ```
-#### Example Responses
+#### Example Response
 
-__URL in Database__
 ```php
-Array
+pxgamer\PhishTank\Hook Object
 (
-    [meta] => Array
+    [url:pxgamer\PhishTank\Hook:private] => https://github.com
+    [requestData:pxgamer\PhishTank\Hook:private] => Array
         (
-            [timestamp] => 2017-02-27T15:45:08+00:00
-            [serverid] => ...
-            [status] => success
-            [requestid] => ...
-        )
-
-    [results] => Array
-        (
+            [format] => json
             [url] => https://github.com
-            [in_database] => true
-            [phish_id] => ...
-            [phish_detail_page] => http://www.phishtank.com/phish_detail.php?phish_id=*
-            [verified] => y
-            [verified_at] => 2006-10-01T02:32:23+00:00
-            [valid] => y
         )
 
-)
-```
-
-__URL not in Database__
-```php
-Array
-(
-    [meta] => Array
+    [app_key:pxgamer\PhishTank\Hook:private] => 
+    [meta:pxgamer\PhishTank\Hook:private] => pxgamer\PhishTank\Meta Object
         (
-            [timestamp] => 2017-02-27T15:45:08+00:00
-            [serverid] => ...
-            [status] => success
-            [requestid] => ...
+            [timestamp:protected] => DateTime Object
+                (
+                    [date] => 2017-08-07 13:18:13.000000
+                    [timezone_type] => 1
+                    [timezone] => +00:00
+                )
+
+            [serverid:protected] => ab9f6c17
+            [status:protected] => 1
+            [requestid:protected] => 146.112.225.22.59886895b52782.72884672
         )
 
-    [results] => Array
+    [results:pxgamer\PhishTank\Hook:private] => pxgamer\PhishTank\Results Object
         (
-            [url] => https://github.com
-            [in_database] => false
+            [url:protected] => https://github.com
+            [in_database:protected] => 
+            [phish_id:protected] => 
+            [phish_detail_page:protected] => 
+            [verified:protected] => 
+            [verified_at:protected] => 
+            [valid:protected] => 
         )
 
 )
