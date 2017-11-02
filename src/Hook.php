@@ -57,12 +57,10 @@ class Hook
         curl_setopt_array(
             $cu,
             [
-                CURLOPT_URL => self::API_CHECK_URL,
-                CURLOPT_SSL_VERIFYHOST => 0,
-                CURLOPT_SSL_VERIFYPEER => 0,
+                CURLOPT_URL            => self::API_CHECK_URL,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $this->requestData,
+                CURLOPT_POST           => true,
+                CURLOPT_POSTFIELDS     => $this->requestData,
             ]
         );
 
