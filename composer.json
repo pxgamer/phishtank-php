@@ -1,17 +1,17 @@
 {
-  "name": "pxgamer/phishtank-php",
-  "type": "library",
-  "description": "A simple PHP wrapper for the PhishTank API.",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "pxgamer\\PhishTank\\": "src/"
+    "name": "pxgamer/phishtank-php",
+    "type": "library",
+    "description": "A simple PHP wrapper for the PhishTank API.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "pxgamer\\PhishTank\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3.0"
     }
-  },
-  "require": {
-    "php": "^7.1.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^6.3.0"
-  }
 }
