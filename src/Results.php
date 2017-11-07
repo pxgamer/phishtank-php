@@ -52,7 +52,6 @@ class Results
         $this->in_database = $jsonResults['in_database'];
 
         if ($this->in_database) {
-
             // Set strings
             $this->phish_detail_page = $jsonResults['phish_detail_page'];
 
