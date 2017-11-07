@@ -6,6 +6,7 @@ use DateTime;
 
 /**
  * Class Results
+ *
  * @package pxgamer\PhishTank
  */
 class Results
@@ -42,7 +43,7 @@ class Results
     /**
      * Populates the attributes using the response data
      *
-     * @param $jsonResults
+     * @param  $jsonResults
      * @return $this
      */
     public function populate($jsonResults)
