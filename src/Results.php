@@ -65,7 +65,6 @@ class Results
             // Set booleans
             $this->verified = ($jsonResults['verified'] === 'y') ? true : false;
             $this->valid = ($jsonResults['valid'] === 'y') ? true : false;
-
         }
 
         return $this;
