@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "pxgamer\\PhishTank\\": "tests"
         }
     },
     "scripts": {
