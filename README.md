@@ -11,8 +11,6 @@ A simple PHP wrapper for the [PhishTank][pt] API.
 
 ## Structure
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
 ```
 src/
 tests/
