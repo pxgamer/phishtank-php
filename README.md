@@ -14,8 +14,6 @@ A simple PHP wrapper for the [PhishTank][pt] API.
 If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
 
 ```
-bin/        
-config/
 src/
 tests/
 vendor/
@@ -47,17 +45,13 @@ This will refresh the results and fetch new ones from the server.
 #### Example code
 
 ```php
-<?php
-
-include 'vendor/autoload.php';
-
 use pxgamer\PhishTank\Hook;
 
 $result = new Hook('https://github.com');
 
 echo '<pre>' . print_r($result, true) . '</pre>';
 ```
-#### Usage
+#### Example response
 
 ```php
 pxgamer\PhishTank\Hook Object
@@ -114,11 +108,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT
 
 ## Security
 
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [:author_name][link-author]
+- [pxgamer][link-author]
 - [All Contributors][link-contributors]
 
 ## License
