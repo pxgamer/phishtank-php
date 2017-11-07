@@ -6,6 +6,7 @@ use DateTime;
 
 /**
  * Class Meta
+ *
  * @package pxgamer\PhishTank
  */
 class Meta
@@ -30,7 +31,7 @@ class Meta
     /**
      * Populates the attributes using the response data
      *
-     * @param $jsonMeta
+     * @param  $jsonMeta
      * @return $this
      */
     public function populate($jsonMeta)

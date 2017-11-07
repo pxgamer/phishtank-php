@@ -15,8 +15,9 @@ class MainTest extends TestCase
 
     /**
      * MainTest constructor.
-     * @param null $name
-     * @param array $data
+     *
+     * @param null   $name
+     * @param array  $data
      * @param string $dataName
      */
     public function __construct($name = null, array $data = [], $dataName = '')

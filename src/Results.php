@@ -6,6 +6,7 @@ use DateTime;
 
 /**
  * Class Results
+ *
  * @package pxgamer\PhishTank
  */
 class Results
@@ -42,7 +43,7 @@ class Results
     /**
      * Populates the attributes using the response data
      *
-     * @param $jsonResults
+     * @param  $jsonResults
      * @return $this
      */
     public function populate($jsonResults)
@@ -51,7 +52,6 @@ class Results
         $this->in_database = $jsonResults['in_database'];
 
         if ($this->in_database) {
-
             // Set strings
             $this->phish_detail_page = $jsonResults['phish_detail_page'];
 
@@ -64,7 +64,6 @@ class Results
             // Set booleans
             $this->verified = ($jsonResults['verified'] === 'y') ? true : false;
             $this->valid = ($jsonResults['valid'] === 'y') ? true : false;
-
         }
 
         return $this;

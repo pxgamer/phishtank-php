@@ -1,25 +1,33 @@
 # phishtank-php
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Style CI][ico-styleci]][link-styleci]
+[![Code Coverage][ico-code-quality]][link-code-quality]
+[![Total Downloads][ico-downloads]][link-downloads]
+
 A simple PHP wrapper for the [PhishTank][pt] API.
 
+## Structure
+
+If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
+
+```
+src/
+tests/
+vendor/
+```
+
+## Install
+
+Via Composer
+
+``` bash
+$ composer require pxgamer/phishtank-php
+```
+
 ## Usage
-
-__Include the class:__
-
-#### Using Composer  
-`composer require pxgamer/phishtank`  
-```php
-<?php
-require 'vendor/autoload.php';
-```
-
-#### Including the file manually  
-```php
-<?php
-include 'src/Hook.php';
-```
-
-## Functions
 
 **__construct($url, $api_key = null)**
 
@@ -34,20 +42,16 @@ $client = new \pxgamer\PhishTank\Hook($url);
 
 This will refresh the results and fetch new ones from the server.
 
-## Example
+#### Example code
 
 ```php
-<?php
-
-include 'vendor/autoload.php';
-
 use pxgamer\PhishTank\Hook;
 
 $result = new Hook('https://github.com');
 
 echo '<pre>' . print_r($result, true) . '</pre>';
 ```
-#### Example Response
+#### Example response
 
 ```php
 pxgamer\PhishTank\Hook Object
@@ -88,4 +92,46 @@ pxgamer\PhishTank\Hook Object
 )
 ```
 
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+
+## Credits
+
+- [pxgamer][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
 [pt]: https://www.phishtank.com
+
+[ico-version]: https://img.shields.io/packagist/v/pxgamer/phishtank-php.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/pxgamer/phishtank-php/master.svg?style=flat-square
+[ico-styleci]: https://styleci.io/repos/83330775/shield
+[ico-code-quality]: https://img.shields.io/codecov/c/github/pxgamer/phishtank-php.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/phishtank-php.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/pxgamer/phishtank-php
+[link-travis]: https://travis-ci.org/pxgamer/phishtank-php
+[link-styleci]: https://styleci.io/repos/83330775
+[link-code-quality]: https://codecov.io/gh/pxgamer/phishtank-php
+[link-downloads]: https://packagist.org/packages/pxgamer/phishtank-php
+[link-author]: https://github.com/pxgamer
+[link-contributors]: ../../contributors

@@ -4,6 +4,7 @@ namespace pxgamer\PhishTank;
 
 /**
  * Class Hook
+ *
  * @package pxgamer\PhishTank
  */
 class Hook
@@ -71,7 +72,8 @@ class Hook
 
     /**
      * Populate the meta and results attributes
-     * @param $jsonResponse
+     *
+     * @param  $jsonResponse
      * @return $this
      */
     private function populate($jsonResponse)
@@ -89,6 +91,7 @@ class Hook
 
     /**
      * Get the Meta object
+     *
      * @return null|Meta
      */
     public function meta()
@@ -98,6 +101,7 @@ class Hook
 
     /**
      * Get the Results object
+     *
      * @return null|Results
      */
     public function results()
