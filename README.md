@@ -9,14 +9,6 @@
 
 A simple PHP wrapper for the [PhishTank][pt] API.
 
-## Structure
-
-```
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
